@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Lich's Lair Alpha Playtest v0.11</title>
+  </head>
+  <body style="text-align: center; padding: 0; border: 0; margin: 0;">
+    <canvas id="unity-canvas" width=1280 height=720 tabindex="-1" style="width: 1280px; height: 720px; background: #231F20"></canvas>
+    <script src="Build/WebBuild.loader.js"></script>
+    <script>
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        // Mobile device style: fill the whole browser client area with the game canvas:
+        var meta = document.createElement('meta');
+        meta.name = 'viewport';
+        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+        document.getElementsByTagName('head')[0].appendChild(meta);
+
+        var canvas = document.querySelector("#unity-canvas");
+        canvas.style.width = "100%";
+        canvas.style.height = "100%";
+        canvas.style.position = "fixed";
+
+        document.body.style.textAlign = "left";
+      }
+
+      createUnityInstance(document.querySelector("#unity-canvas"), {
+        dataUrl: "Build/WebBuild.data",
+        frameworkUrl: "Build/WebBuild.framework.js",
+        codeUrl: "Build/WebBuild.wasm",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "DefaultCompany",
+        productName: "Lich's Lair",
+        productVersion: "1.0",
+        // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
+        // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
+      });
+    </script>
+    <h1 style="font-family: Verdana">Please leave feedback below!</h1>
+    <h2 style="font-family: Verdana">Changelog:</h2>
+    <h4 style="font-family: Verdana">October 28, 2023</h4>
+    <body style="font-family:Verdana; text-align: left; padding: 0; border: 0; margin: 0;">
+      * Player can now dodge through enemies.<br>
+      * Player abilities and basic attack no longer interrupt each other.<br>
+      * Made player death less abrupt.<br>
+      * Added duplicate room protection to dungeon randomization.<br>
+      * Prevented tutorial rooms from showing up again after looping through the dungeon.<br>
+      * Ability cooldowns now show a number indicating the time left.<br>
+      * Flamethrower ability compresses less when player is moving while shooting.<br>
+    </body><br>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdC0e8HkWVlhqULLg-Y6iK-xXAE0ha7ifbRsIcPKT2DgQKd7Q/viewform?embedded=true" width="640" height="2236" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+  </body>
+</html>
